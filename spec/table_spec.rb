@@ -33,5 +33,11 @@ describe 'Table' do
         expect(@table.valid_direction?(direction)).to be true
       end
     end
+  end
+
+  describe 'invalid direction' do
+    it 'not allow direction - NorthEast' do
+      expect(@table.valid_direction?("NorthEast")).to be false
+    end
   end  
 end
