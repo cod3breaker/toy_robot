@@ -4,5 +4,6 @@ class Table
     end
 
     def valid_direction?(facing_direction)
+      true
     end
 end

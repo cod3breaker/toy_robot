@@ -27,8 +27,11 @@ describe 'Table' do
   end
 
   describe 'valid direction' do
-    it 'allows direction - North' do
-      @table.valid_direction?('North').eql?(true)
+    directions = ['NORTH', 'SOUTH', 'EAST', 'WEST']
+    directions.each do |direction|
+      it 'allows direction - #{direction}' do
+        expect(@table.valid_direction?(direction)).to be true
+      end
     end
-  end
+  end  
 end
