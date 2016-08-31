@@ -25,4 +25,10 @@ describe 'Table' do
       @table.valid_coordinates?(0,5).eql?(false)
     end     
   end
+
+  describe 'valid direction' do
+    it 'allows direction - North' do
+      @table.valid_direction?('North').eql?(true)
+    end
+  end
 end
