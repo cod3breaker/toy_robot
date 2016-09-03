@@ -39,5 +39,27 @@ describe 'Table' do
     it 'not allow direction - NorthEast' do
       expect(@table.valid_direction?('NorthEast')).to be false
     end
-  end  
+  end
+
+  describe 'moving robot' do
+    it 'allow to move robot on the table' do
+      expect(@table.is_movable?(0,3,'EAST')).to be true
+    end
+
+    it 'not allowed to move when x=0, y=2 and facing direction = West' do
+      expect(@table.is_movable?(0,2,'WEST')).to be false
+    end
+
+    it 'not allowed to move when x=4 and facing direction = EAST' do
+      expect(@table.is_movable?(4,2,'EAST')).to be false
+    end
+
+    it 'not allowed to move when y=0 and facing direction = South' do
+      expect(@table.is_movable?(2,0,'SOUTH')).to be false
+    end
+
+    it 'not allowed to move when y is 4 and fading direction is NORTH' do
+      expect(@table.is_movable?(2,4,'NORTH')).to be false
+    end
+  end
 end
