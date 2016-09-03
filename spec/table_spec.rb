@@ -27,9 +27,9 @@ describe 'Table' do
   end
 
   describe 'valid direction' do
-    directions = ['NORTH', 'SOUTH', 'EAST', 'WEST']
+    directions = %w(NORTH SOUTH EAST WEST)
     directions.each do |direction|
-      it 'allows direction - #{direction}' do
+      it('allows direction - #{direction}') do
         expect(@table.valid_direction?(direction)).to be true
       end
     end
@@ -37,7 +37,7 @@ describe 'Table' do
 
   describe 'invalid direction' do
     it 'not allow direction - NorthEast' do
-      expect(@table.valid_direction?("NorthEast")).to be false
+      expect(@table.valid_direction?('NorthEast')).to be false
     end
   end  
 end

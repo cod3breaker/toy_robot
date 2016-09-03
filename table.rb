@@ -4,6 +4,6 @@ class Table
     end
 
     def valid_direction?(facing_direction)
-      ['NORTH', 'SOUTH', 'EAST', 'WEST'].include?(facing_direction)
+      %w(NORTH SOUTH EAST WEST).include?(facing_direction)
     end
 end
