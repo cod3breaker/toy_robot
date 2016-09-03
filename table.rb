@@ -8,12 +8,12 @@ class Table
   end
 
   def is_movable?(x,y,facing_direction)
-    if (x==0 && facing_direction=='WEST') || (x==4 && facing_direction=='EAST') ||
-        (y==0 && facing_direction == 'SOUTH') || (y==4 && facing_direction == 'NORTH')
-      false
-    else
-      true
-    end
+    non_movable_combo = [[0,'WEST'],[4,'EAST'],[0,'SOUTH'],[4,'NORTH']]
+
+    non_movable_x = [x,facing_direction]
+    non_movable_y = [y,facing_direction]
+
+    (non_movable_combo.include?(non_movable_x) || non_movable_combo.include?(non_movable_y)) ? false : true
   end
 
 end
