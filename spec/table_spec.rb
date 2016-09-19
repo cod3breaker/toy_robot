@@ -23,7 +23,7 @@ describe 'Table' do
 
     it 'should not allow y > 4 coordinates' do
       @table.valid_coordinates?(0,5).eql?(false)
-    end     
+    end
   end
 
   describe 'valid direction' do
@@ -60,6 +60,19 @@ describe 'Table' do
 
     it 'not allowed to move when y is 4 and fading direction is NORTH' do
       expect(@table.is_movable?(2,4,'NORTH')).to be false
+    end
+  end
+
+  describe 'Robot on Table' do
+    it 'check whether the Robot is on the Table' do
+      expect(@table.is_robot_on_table?).to be false
+    end
+
+    it 'check whether the Robot is not on the Table' do
+      Robot.instance.x_position = 0
+      Robot.instance.y_position = 0
+      Robot.instance.facing_direction = 'NORTH'
+      expect(@table.is_robot_on_table?).to be true
     end
   end
 end

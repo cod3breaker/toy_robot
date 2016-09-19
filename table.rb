@@ -16,4 +16,11 @@ class Table
     (non_movable_combo.include?(non_movable_x) || non_movable_combo.include?(non_movable_y)) ? false : true
   end
 
+  def is_robot_on_table?
+    if Robot.instance.x_position
+      true
+    else
+      false
+    end
+  end
 end
