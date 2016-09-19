@@ -8,7 +8,12 @@ describe 'Robot Turn' do
     Robot.instance.facing_direction = 'EAST'
   end
 
-  
+  describe 'Turn Left' do
+    it 'makes the Robot turn left' do
+      @turn.execute('LEFT')
+      expect(Robot.instance.facing_direction).to eq('SOUTH')
+    end
+  end
 
 
 end
