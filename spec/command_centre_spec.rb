@@ -7,17 +7,24 @@ describe 'Command Centre' do
     @place = Place.new
   end
 
-  describe 'command' do
-    it 'issue place command' do
-      command_array = ['PLACE',0,0,'WEST']
-      @command_centre.execute(command_array)
-      expect(Table.new.is_robot_on_table?).to be true
+  describe 'place command' do
+    it 'checks whether the command is PLACE' do
+      command_array = ['PLACE',0,0,'NORTH']
+      expect(@command_centre.execute(command_array)).eql?('NORTH')
     end
 
-    it 'issue move command only if robot on the table' do
-      command_array = ['MOVE']
+    it 'calls Place-execute if the command is PLACE' do
+      command_array = ['PLACE',0,0,'NORTH']
+      x = command_array[1]
+      y = command_array[2]
+      f = command_array[3]
+
+      place = spy('place')
+      place.execute(x,y,f)
+      #allow(@place).to receive(:execute).with(x,y,f)
+      #@place.execute(x,y,f)
+      expect(place).to have_received(:execute)
       @command_centre.execute(command_array)
-      expect(Move.new.execute('WEST')).to be nil
     end
   end
 end
