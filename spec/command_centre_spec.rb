@@ -21,6 +21,17 @@ describe 'Command Centre' do
 
       place = spy('place')
       place.execute(x,y,f)
+      expect(place).to have_received(:execute)
+      @command_centre.execute(command_array)
+    end
+
+    it 'checks the validity of the array' do
+      command_array = ['PLACE']
+      x = command_array[1]
+      y = command_array[2]
+      f = command_array[3]
+      place = spy('place')
+      place.execute(x,y,f)
       #allow(@place).to receive(:execute).with(x,y,f)
       #@place.execute(x,y,f)
       expect(place).to have_received(:execute)
