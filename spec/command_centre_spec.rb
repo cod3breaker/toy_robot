@@ -38,4 +38,28 @@ describe 'Command Centre' do
       @command_centre.execute(command_array)
     end
   end
+
+  describe 'Other commands' do
+    it 'checks whether the robot on the table before issuing other commands' do
+      table = spy('table')
+      table.is_robot_on_table?
+      expect(table).to have_received(:is_robot_on_table?)
+      CommandCentre.new.is_robot_on_table?
+    end
+
+    it 'calls Move.execute if the Robot is on the table' do
+      Robot.instance.x_position = 0
+      Robot.instance.y_position = 0
+      Robot.instance.facing_direction = 'NORTH'
+
+      command_array = ['MOVE']
+      @command_centre.execute(command_array)
+
+      expect(Robot.instance.y_position).to eq(1)
+      #move = spy('move')
+      #move.execute(Robot.instance.facing_direction)
+      #expect(move).to have_received(:execute).with(command_array[0])
+      #@command_centre.execute(command_array)
+    end
+  end
 end
