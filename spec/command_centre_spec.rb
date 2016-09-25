@@ -58,7 +58,7 @@ describe 'Command Centre' do
       expect(Robot.instance.y_position).to eq(1)
     end
 
-    it 'calls Turn.execute if the Robot is on the table' do
+    it 'calls Turn.execute for LEFT command if the Robot is on the table' do
       Robot.instance.x_position = 0
       Robot.instance.y_position = 0
       Robot.instance.facing_direction = 'NORTH'
@@ -66,6 +66,29 @@ describe 'Command Centre' do
       command_array = ['LEFT']
       @command_centre.execute(command_array)
       expect(Robot.instance.facing_direction).to eq('WEST')
+    end
+
+    it 'calls Turn.execute for RIGHT command if the Robot is on the table' do
+      Robot.instance.x_position = 0
+      Robot.instance.y_position = 0
+      Robot.instance.facing_direction = 'NORTH'
+
+      command_array = ['RIGHT']
+      @command_centre.execute(command_array)
+      expect(Robot.instance.facing_direction).to eq('EAST')
+    end
+
+    it 'calls Report.execute if the Robot is on the table' do
+      Robot.instance.x_position = 0
+      Robot.instance.y_position = 0
+      Robot.instance.facing_direction = 'NORTH'
+
+      command_array = ['REPORT']
+
+      report = spy('report')
+      report.execute
+      expect(report).to have_received(:execute)
+      @command_centre.execute(command_array)
     end
   end
 end

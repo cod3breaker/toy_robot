@@ -17,6 +17,10 @@ class CommandCentre
         Move.new.execute(Robot.instance.facing_direction)
       elsif command_array[0] == 'LEFT'
         Turn.new.execute('LEFT')
+      elsif command_array[0] == 'RIGHT'
+        Turn.new.execute('RIGHT')
+      elsif command_array[0] == 'REPORT'
+        Report.new.execute
       end
     end
   end
