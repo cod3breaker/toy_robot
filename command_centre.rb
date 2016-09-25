@@ -15,8 +15,10 @@ class CommandCentre
     elsif self.is_robot_on_table?
       if command_array[0] == 'MOVE'
         Move.new.execute(Robot.instance.facing_direction)
+      elsif command_array[0] == 'LEFT'
+        Turn.new.execute('LEFT')
       end
-    end    
+    end
   end
 
   def is_robot_on_table?
