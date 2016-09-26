@@ -1,3 +1,7 @@
+require_relative '../move'
+require_relative '../turn'
+require_relative '../report'
+
 class AllOtherCommands
   def other_commands(command_array)
     case command_array[0]

@@ -4,10 +4,8 @@ require_relative 'table'
 
 class CommandCentre
   def execute(command_array)
-    if command_array.empty?
-      "No commands can be found"
-    elsif command_array[0] == 'PLACE'
-      PlaceCommand.new.place_command(command_array)
+    if command_array[0] == 'PLACE'
+      PlaceCommand.new.run_place_command(command_array)
     elsif Table.new.is_robot_on_table?
       AllOtherCommands.new.other_commands(command_array)
     end
