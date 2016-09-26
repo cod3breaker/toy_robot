@@ -44,7 +44,7 @@ describe 'Command Centre' do
       table = spy('table')
       table.is_robot_on_table?
       expect(table).to have_received(:is_robot_on_table?)
-      CommandCentre.new.is_robot_on_table?
+      Table.new.is_robot_on_table?
     end
 
     it 'calls Move.execute if the Robot is on the table' do
