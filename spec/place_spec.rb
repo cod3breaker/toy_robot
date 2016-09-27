@@ -4,6 +4,8 @@ describe 'Place command' do
   before do
     @place = Place.new
     @table = Table.new
+    # clear Robot instance before testing
+    Robot.instance.x_position = nil
   end
 
   describe 'calling place command' do

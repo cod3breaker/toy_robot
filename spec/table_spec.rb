@@ -2,6 +2,7 @@
 describe 'Table' do
   before do
     @table = Table.new
+    Robot.instance.x_position = nil
   end
 
   describe 'valid coordinates' do
