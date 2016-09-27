@@ -5,7 +5,7 @@ require_relative '../../table'
 
 class AllOtherCommands
   def other_commands(command_array)
-    case command_array[0]
+    case command_array[0].upcase
     when 'MOVE'
       # check if Robot is falling before moving
       x = Robot.instance.x_position

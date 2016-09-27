@@ -11,7 +11,7 @@ describe 'Robot Turn' do
     it 'makes the Robot turn left when facing EAST' do
       Robot.instance.facing_direction = 'EAST'
       @turn.execute('LEFT')
-      expect(Robot.instance.facing_direction).to eq('SOUTH')
+      expect(Robot.instance.facing_direction).to eq('NORTH')
     end
 
     it 'makes the Robot turn left when facing NORTH' do
@@ -29,7 +29,7 @@ describe 'Robot Turn' do
     it 'makes the Robot turn left when facing WEST' do
       Robot.instance.facing_direction = 'WEST'
       @turn.execute('LEFT')
-      expect(Robot.instance.facing_direction).to eq('NORTH')
+      expect(Robot.instance.facing_direction).to eq('SOUTH')
     end
   end
 
@@ -49,13 +49,13 @@ describe 'Robot Turn' do
     it 'makes the Robot turn right when facing EAST' do
       Robot.instance.facing_direction = 'EAST'
       @turn.execute('RIGHT')
-      expect(Robot.instance.facing_direction).to eq('NORTH')
+      expect(Robot.instance.facing_direction).to eq('SOUTH')
     end
 
     it 'makes the Robot turn right when facing WEST' do
       Robot.instance.facing_direction = 'WEST'
       @turn.execute('RIGHT')
-      expect(Robot.instance.facing_direction).to eq('SOUTH')
+      expect(Robot.instance.facing_direction).to eq('NORTH')
     end
   end
 
