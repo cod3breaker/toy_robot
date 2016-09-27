@@ -58,6 +58,4 @@ describe 'Robot Turn' do
       expect(Robot.instance.facing_direction).to eq('NORTH')
     end
   end
-
-
 end
