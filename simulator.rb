@@ -4,20 +4,12 @@ class Simulator
   @command_centre = CommandCentre.new
 
   loop do
-  print "\n\nDo you want to play with the toy robot? (press y/Y or any other key to quit):> "
-
-  answer = gets.chomp
-
-  if answer.capitalize != 'Y'
-    break
-  end
-
-  print "Please enter a command: "
+  print "Please enter a command (press enter to quit): "
 
   command = gets.chomp
 
   if command.nil? or command.empty?
-    message = "Please enter a command"
+    break
   else
     command_array = command.split(/\W+/)
     message = @command_centre.execute(command_array)
