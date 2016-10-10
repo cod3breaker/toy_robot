@@ -9,7 +9,7 @@ class CommandCentre
     elsif Table.new.is_robot_on_table?
       AllOtherCommands.new.other_commands(command_array)
     else
-      "Cannot make a move. Robot is not on the table."
+      "Please use the PLACE command first. Robot is not on the table."
     end
   end
 end
