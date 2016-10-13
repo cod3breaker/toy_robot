@@ -16,8 +16,6 @@ Following commands can be issued to perform the operations
 
 5.) REPORT - shows the robot's current postion and facing direction
 
-N.B: Everytime a command issued the application will ask the user whether he/she wants keep playing with the robot. And the user must type either 'y' or 'Y' to keep playing. Otherwise the application will quit.
-
 
 Running The application:
 
