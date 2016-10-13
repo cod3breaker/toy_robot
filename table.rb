@@ -10,10 +10,15 @@ class Table
   def is_movable?(x,y,facing_direction)
     non_movable_combo = [[0,'WEST'],[4,'EAST'],[0,'SOUTH'],[4,'NORTH']]
 
+    non_movable_combo_for_x = [[0,'WEST'],[4,'EAST']]
+    non_movable_combo_for_y = [[0,'SOUTH'],[4,'NORTH']]
+
     non_movable_x = [x,facing_direction]
     non_movable_y = [y,facing_direction]
 
-    (non_movable_combo.include?(non_movable_x) || non_movable_combo.include?(non_movable_y)) ? false : true
+    (non_movable_combo_for_x.include?(non_movable_x) || non_movable_combo_for_y.include?(non_movable_y)) ? false : true
+
+    #(non_movable_combo.include?(non_movable_x) || non_movable_combo.include?(non_movable_y)) ? false : true
   end
 
   def is_robot_on_table?

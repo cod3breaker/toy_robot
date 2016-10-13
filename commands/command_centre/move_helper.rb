@@ -10,6 +10,7 @@ class MoveHelper
 
     if Table.new.is_movable?(x,y,f)
       Move.new.execute(Robot.instance.facing_direction)
+      "Robot moved 1 step forward #{Robot.instance.facing_direction}"
     else
       "Cannot make a move. Robot about to fall from table."
     end

@@ -47,6 +47,14 @@ describe 'Table' do
       expect(@table.is_movable?(0,3,'EAST')).to be true
     end
 
+    it 'allowed to move when x is 4 and fading direction is NORTH' do
+      expect(@table.is_movable?(4,0,'NORTH')).to be true
+    end
+
+    it 'allowed to move when x is 0 and fading direction is NORTH' do
+      expect(@table.is_movable?(4,0,'NORTH')).to be true
+    end
+
     it 'not allowed to move when x=0, y=2 and facing direction = West' do
       expect(@table.is_movable?(0,2,'WEST')).to be false
     end
